@@ -33,10 +33,10 @@
 <!-- MAIN -->
 <main id='root'>
     <div id="agenda-form" style="display: none;">
-        <?php include('./template/agenda.html'); ?>
+        <?php include('./template/agendaForm.php'); ?>
     </div>
     <div id="cita-form" style="display: none;">
-        <?php include('./template/cita.html'); ?>
+        <?php include('./template/citaForm.php'); ?>
     </div>
 </main>
     <!-- FOOTER-->
