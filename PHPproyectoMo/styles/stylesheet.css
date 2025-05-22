@@ -244,8 +244,9 @@ footer{
 .menu__link {
   font-size: large;
   font-weight: 100;
-  color: white;
   text-decoration: none;
+  color:white;
+  background-color: #a66b38;
   display: block;
   height: auto;
   width: 80%;

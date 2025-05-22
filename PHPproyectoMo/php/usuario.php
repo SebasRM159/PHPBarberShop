@@ -82,7 +82,7 @@ class usuario{
         $password = $this->password;
         
         // Comprobar si existe el usuario
-        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password = '$password'";
         $login = $this->db->query($sql);
         return $login;
     }
