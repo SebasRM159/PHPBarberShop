@@ -71,7 +71,7 @@ class usuario{
         $save = $this->db->query($sql);
         $result = false;
         if($save)
-         $result=true; 
+        $result=true; 
 
         return $result;
     }
