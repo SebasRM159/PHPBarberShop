@@ -6,5 +6,5 @@ class Database{
         return $conexion;
     }
 }
-?>
+?>;
 

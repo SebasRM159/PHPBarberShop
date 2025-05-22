@@ -12,7 +12,8 @@ class usuario{
         $this->db=Database::connect();
     }
 
-    // GETTERS
+//------------------ GETTERS ------------------//
+
     public function getNombre() {
         return $this->nombre;
     }
@@ -34,7 +35,7 @@ class usuario{
     }
 
 
-    // SETTERS
+    //------------------ SETTERS ------------------//
 
      public function setNombre($nombre) {
         $this->nombre = $nombre;
@@ -64,8 +65,7 @@ class usuario{
             '{$this->getApellidos()}',
             '{$this->getEmail()}',
             '{$this->getPassword()}',
-            '{$this->getFecha()}',
-            '{$this->getTipo()}'
+            '{$this->getFecha()}'
         )";
         
         $save = $this->db->query($sql);
@@ -94,8 +94,7 @@ class usuario{
                 apellidos = '{$this->getApellidos()}',
                 email = '{$this->getEmail()}',
                 password = '{$this->getPassword()}',
-                fecha = '{$this->getFecha()}',
-                tipo = '{$this->getTipo()}'
+                fecha = '{$this->getFecha()}'
                 WHERE id = $id";
                 
         $update = $this->db->query($sql);   
@@ -103,4 +102,4 @@ class usuario{
     }
 }
 
-?>
+?>;

@@ -13,7 +13,7 @@ class Tipo {
         $this->db = Database::connect();
     }
 
-    // GETTERS
+//------------------ GETTERS ------------------//
 
     public function getNombre() {
         return $this->nombre;
@@ -31,7 +31,7 @@ class Tipo {
         return $this->duracion;
     }
 
-    // SETTERS
+    //------------------ SETTERS ------------------//
 
     public function setNombre($nombre) {
         $this->nombre = $this->db->$nombre;
@@ -51,10 +51,10 @@ class Tipo {
 
     public function save() {
         $sql ="INSERT INTO tipo (nombre, descripcion, costo, duracion) VALUES (
-            '{$this->getNombre}',
-            '{$this->getDescripcion}',
-            {$this->getCosto},
-            {$this->getDuracion}
+            '{$this->getNombre()}',
+            '{$this->getDescripcion()}',
+            {$this->getCosto()},
+            {$this->getDuracion()}
         )";
         
         $save = $this->db->query($sql);

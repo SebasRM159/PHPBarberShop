@@ -1,5 +1,8 @@
 <?php
+require_once 'db.php';
+
 class Agenda {
+    private $id;
     private $fecha;
     private $disponibilidad;
     private $db;
@@ -8,7 +11,11 @@ class Agenda {
         $this->db = Database::connect();
     }
 
-    // GETTERS
+    //------------------ GETTERS ------------------//
+   public function getId() {
+        return $this->id;
+    }
+
     public function getFecha() {
         return $this->fecha;
     }
@@ -17,10 +24,14 @@ class Agenda {
         return $this->disponibilidad;
     }
 
-    // SETTERS
-
+    //------------------ SETTERS ------------------//
+    public function setId($id) {
+        $this->id = $this->db->$id;
+    }
+    
     public function setFecha($fecha) {
-        $this->hora = $this->db->$hora;
+        $this->fecha = $this->db->$fecha;
+    }
 
     public function setDisponibilidad($disponibilidad) {
         $this->disponibilidad = $disponibilidad ? 1 : 0; // Convertir a 1 o 0 para la BD
@@ -49,4 +60,4 @@ class Agenda {
         return $update;
     }
 }
-?>
+?>;

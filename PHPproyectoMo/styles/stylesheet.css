@@ -42,9 +42,6 @@ main{
   height: 100%;
   object-fit: cover;
 }
-.FormularioA form{
-
-}
 
 label{
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);

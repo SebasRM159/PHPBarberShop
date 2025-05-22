@@ -2,6 +2,7 @@
 require_once 'db.php';
 
 class Cita {
+    private $id;
     private $cliente;
     private $estado;
     private $hora;
@@ -12,7 +13,10 @@ class Cita {
         $this->db = Database::connect();
     }
 
-    // GETTERS
+    //------------------ GETTERS ------------------//
+    public function getId() {
+        return $this->id;
+    }
 
     public function getCliente() {
         return $this->cliente;
@@ -30,7 +34,10 @@ class Cita {
         return $this->valor;
     }
 
-    // SETTERS
+    //------------------ SETTERS ------------------//
+    public function setId($id) {
+        $this->id = $this->db->$id;
+    }
 
     public function setCliente($cliente) {
         $this->cliente = $this->db->$cliente;
