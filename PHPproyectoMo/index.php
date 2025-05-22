@@ -21,7 +21,7 @@
             <button id="show-cita-form" class="menu__link">
                 <li>Citar</li>
             </button>
-            <a href="./template/login.html" class="menu__link">
+            <a href="./template/login.php" class="menu__link">
                 <li>Login</li>
             </a>
             <a aria-label="Vista" class="menu__link">

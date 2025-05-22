@@ -5,7 +5,6 @@ class usuario{
     private $apellidos;
     private $email;
     private $password;
-    private $fecha;
     private $db;
 
     public function __construct(){
@@ -30,10 +29,6 @@ class usuario{
         return $this->password;
     }
 
-    public function getFecha() {
-        return $this->fecha;
-    }
-
 
     //------------------ SETTERS ------------------//
 
@@ -53,19 +48,18 @@ class usuario{
         $this->password = $password;
     }
 
-    public function setFecha($fecha) {
-        $this->fecha = $fecha;
-    }
-
     //funcion save
     public function save() {
-        $sql = "INSERT INTO usuarios VALUES(
-            NULL,
+        $sql = "INSERT INTO usuario(
+        `nombre`,
+        `apellidos`,
+        `email`,
+        `password`
+        ) VALUES(
             '{$this->getNombre()}',
             '{$this->getApellidos()}',
             '{$this->getEmail()}',
-            '{$this->getPassword()}',
-            '{$this->getFecha()}'
+            '{$this->getPassword()}'
         )";
         
         $save = $this->db->query($sql);
@@ -82,19 +76,18 @@ class usuario{
         $password = $this->password;
         
         // Comprobar si existe el usuario
-        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password = '$password'";
+        $sql = "SELECT * FROM usuario WHERE email = '$email' AND password = '$password'";
         $login = $this->db->query($sql);
         return $login;
     }
 
     //funcion update
-     public function update($id) {
-        $sql = "UPDATE usuarios SET 
+    public function update($id) {
+        $sql = "UPDATE usuario SET 
                 nombre = '{$this->getNombre()}',
                 apellidos = '{$this->getApellidos()}',
                 email = '{$this->getEmail()}',
-                password = '{$this->getPassword()}',
-                fecha = '{$this->getFecha()}'
+                password = '{$this->getPassword()}'
                 WHERE id = $id";
                 
         $update = $this->db->query($sql);   
