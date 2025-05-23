@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                     <?php echo htmlspecialchars($message); ?>
                 </div>
             <?php endif; ?>
-            <form method="POST">
+            <form action="login.php" method="POST">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name" required value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
                 <br>
