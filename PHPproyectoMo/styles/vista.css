@@ -1,0 +1,77 @@
+@import url('stylesheet.css'); /* Importa tu estilo base */
+
+/* Estilos específicos para la vista de citas */
+.vista-main {
+  padding: 40px;
+  background-color: #f2dec4;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tabla-contenedor {
+  background-color: #c48f61;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.titulo {
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+
+.tabla-citas {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ecdcc0;
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-citas thead {
+  background-color: #703a12;
+  color: white;
+}
+
+.tabla-citas th,
+.tabla-citas td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabla-citas tr:hover {
+  background-color: #f3e2c7;
+}
+
+.btn-editar,
+.btn-eliminar {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-editar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-eliminar {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #388e3c;
+}
+
+.btn-eliminar:hover {
+  background-color: #c62828;
+}
