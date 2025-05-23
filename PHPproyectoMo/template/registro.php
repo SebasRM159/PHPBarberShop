@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
 
         if($usuario->save()) {
             $message = 'Usuario registrado correctamente.';
-            header('Location: ../index.php');
+            header('Location: login.php');
         } else {
             throw new Exception("Error al registrar el usuario.");
         }
@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                     <?php echo htmlspecialchars($message); ?>
                 </div>
             <?php endif; ?>
-            <form action="login.php" method="POST">
+            <form method="POST">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name" required value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
                 <br>
