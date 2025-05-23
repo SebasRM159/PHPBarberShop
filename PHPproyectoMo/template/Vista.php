@@ -49,9 +49,10 @@ $query = mysqli_query($con, $sql);
                 </tbody>
             </table>
 
-
+            <a class="volver"href="../index.php">Volver</a>
         </div>
     </main>
-    
+
+
 </body>
 </html>
