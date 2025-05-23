@@ -10,6 +10,7 @@ class Cita {
     private $hora;
     private $valor;
     private $db;
+    private $FK_id_agenda;
 
     public function __construct() {
         $this->db = Database::connect();
@@ -35,35 +36,42 @@ class Cita {
     public function getValor() {
         return $this->valor;
     }
+    public function getFK_id_agenda() {
+        return $this->FK_id_agenda;
+    }
 
     //------------------ SETTERS ------------------//
     public function setId($id) {
-        $this->id = $this->db->$id;
+        $this->id = $id;
     }
 
     public function setFecha($fecha) {
-        $this->fecha = $this->db->$fecha;
+        $this->fecha = $fecha;
     }
 
     public function setCliente($cliente) {
-        $this->cliente = $this->db->$cliente;
+        $this->cliente = $cliente;
     }
 
     public function setHora($hora) {
-        $this->hora = $this->db->$hora;
+        $this->hora = $hora;
     }
 
     public function setValor($valor) {
-        $this->valor =  $this->db->$valor; // Asegurar que sea decimal
+        $this->valor =  $valor; // Asegurar que sea decimal
+    }
+    public function setFK_id_agenda($FK_id_agenda) {
+        $this->FK_id_agenda = $FK_id_agenda;
     }
 
 
     public function save() {
-        $sql = "INSERT INTO citas (cliente, hora, valor, fecha) VALUES (
+        $sql = "INSERT INTO cita (cliente, hora, valor, fecha, FK_id_agenda) VALUES (
             '{$this->getCliente()}',
             '{$this->getHora()}',
             '{$this->getValor()}',
-            '{$this->getFecha()}'
+            '{$this->getFecha()}',
+            '{$this->getFK_id_agenda()}'
         )";
         
         $save = $this->db->query($sql);
@@ -76,11 +84,12 @@ class Cita {
 
 
     public function update() {
-        $sql = "UPDATE citas SET 
+        $sql = "UPDATE cita SET 
                 cliente = '{$this->getCliente()}',
                 hora = '{$this->getHora()}',
-                valor = {$this->getValor()},
-                fecha = '{$this->getFecha()}'
+                valor = '{$this->getValor()}',
+                fecha = '{$this->getFecha()}',
+                FK_id_agenda = '{$this->getFK_id_agenda()}'
                 WHERE id = {$this->getId()}";
                 
         $update = $this->db->query($sql);

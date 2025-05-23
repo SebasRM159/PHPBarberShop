@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
 class usuario{
+    private $id;
     private $nombre;
     private $apellidos;
     private $email;
@@ -12,7 +13,9 @@ class usuario{
     }
 
 //------------------ GETTERS ------------------//
-
+    public function getId() {
+        return $this->id;
+    }
     public function getNombre() {
         return $this->nombre;
     }
@@ -31,8 +34,10 @@ class usuario{
 
 
     //------------------ SETTERS ------------------//
-
-     public function setNombre($nombre) {
+    public function setId($id) {
+        $this->id = $id;
+    }
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
 
@@ -92,6 +97,16 @@ class usuario{
                 
         $update = $this->db->query($sql);   
         return $update;
+    }
+
+    public function getAgendas() {
+    $sql = "SELECT * FROM agenda WHERE FK_id_usuario = {$this->id}";
+    $result = $this->db->query($sql);
+    $agendas = [];
+    while($row = $result->fetch_assoc()) {
+        $agendas[] = $row;
+    }
+    return $agendas;
     }
 }
 

@@ -31,7 +31,7 @@ session_start();
                 font-size: 1.05em;
             ">
                 <span style="display:block; font-size:0.95em; opacity:0.8;">Sesión iniciada como:</span>
-                <span style="font-size:1.1em;"><?php echo htmlspecialchars($_SESSION['user']); ?></span>
+                <span style="font-size:1.1em;"><?php echo htmlspecialchars($_SESSION['user']['nombre']); ?></span>
             </div>
         <?php endif; ?>
         <ul class="menu__list">

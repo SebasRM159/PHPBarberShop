@@ -1,10 +1,13 @@
 <?php
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $message = '';
 
-
-
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
-    require_once '../php/cita.php';
+    require_once __DIR__ .'/../php/cita.php';
+    require_once __DIR__ . '/../php/agenda.php';
+
     try{
         $fecha = $_POST['fechaC'] ?? '';
         $cliente = $_POST['nombre'] ?? '';
@@ -15,11 +18,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
             throw new Exception("Todos los campos son obligatorios");
         }
 
+        $usuario_id = $_SESSION['user']['id'];
+        $db = Database::connect();
+        $sql = "SELECT id, diainicio, diafinal FROM agenda WHERE FK_id_usuario = $usuario_id";
+        $result = mysqli_query($db, $sql);
+
+        $agenda_id = null;
+        while($row = $result->fetch_assoc()) {
+            if($fecha >= $row['diainicio'] && $fecha <= $row['diafinal']) {
+                $agenda_id = $row['id'];
+                break;
+            }
+        }
+
+        if(!$agenda_id) {
+            throw new Exception("No hay agendas disponibles para la fecha seleccionada");
+        }  
+
         $cita = new cita();
         $cita->setFecha($fecha);
         $cita->setCliente($cliente);
         $cita->setHora($hora);
         $cita->setValor($valor);
+        $cita->setFK_id_agenda($agenda_id);
 
         if($cita->save()) {
             $message = 'Cita registrada correctamente.';
@@ -37,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/login_style.css">
+    <link rel="stylesheet" href="../styles/stylesheet.css">
     <title>David Rodríguez: Barbería - Citar</title>
 </head>
 <body background="../images/backgroundBarberia.png">
@@ -53,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                 <section>
                     <h1 class="titulo">Citacion</h1>
                     <div class="container-form">
-                        <form id="citas" method="post">
+                        <form id="citas" method="POST">
                             <label for="text">Nombre Completo del Cliente</label>
                             <input type="text" id="nombre" name="nombre" required>
                             <br>
@@ -64,10 +85,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                             <input type="time" id="horaC" name="horaC" required>
                             <br>
                             <label for="text">Valor del corte</label>
-                            <input type="text" id="tipoC" name="desc" required>
-                            <br>
-                            <label for="valor">Valor del corte</label>
-                            <select id="valor" name="valor" required>
+                            <input type="number" id="valor" name="valor" required>
+                            <!-- <br>
+                            <label for="valor">Tipo</label>
+                            <select id="tipo" name="tipo" required>
                                 <option value="">Seleccione una opción</option>
                                 <option value="corto">Corto</option>
                                 <option value="medio">Medio</option>
@@ -76,8 +97,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                                 <option value="medio/barba">Medio/Barba</option>
                                 <option value="largo/barba">Largo/Barba</option>
                             </select>
-                            <br>
-                            <input id="submit-button" type="submit" value="Agendar cita" href="index.php">
+                            <br> -->
+                            <input id="submit-button" type="submit" value="Agendar cita" href="../index.php" name="submit-button">
                         </form>
                     </div>
                 </section>

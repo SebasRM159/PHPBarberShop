@@ -5,7 +5,9 @@ class Agenda {
     private $id;
     private $horaE;
     private $horaS;
-    private $semana;
+    private $diaInicio;
+    private $diaFin;
+    private $FK_id_usuario;
     private $db;
 
     public function __construct() {
@@ -13,7 +15,7 @@ class Agenda {
     }
 
     //------------------ GETTERS ------------------//
-   public function getId() {
+    public function getId() {
         return $this->id;
     }
 
@@ -24,50 +26,75 @@ class Agenda {
     public function getHoraS() {
         return $this->horaS;
     }
-        public function getSemana() {
-        return $this->semana;
+    public function getDiaInicio() {
+        return $this->diaInicio;
+    }
+    public function getDiaFin() {
+        return $this->diaFin;
+    }
+    public function getFK_id_usuario() {
+        return $this->FK_id_usuario;
     }
 
 
     //------------------ SETTERS ------------------//
     public function setId($id) {
-        $this->id = $this->db->$id;
+        $this->id = $id;
     }
     
     public function setHoraE($horaE) {
-        $this->horaE = $this->db->$horaE;
+        $this->horaE = $horaE;
     }
 
     public function setHoraS($horaS): void {
-        $this->horaS = $this->db->$horaS;
+        $this->horaS = $horaS;
     }
 
-    public function setSemana($semana): void {
-        $this->semana = $this->db->$semana;
+    public function setDiaInicio($diaInicio): void {
+        $this->diaInicio = $diaInicio;
+    }
+    public function setDiaFin($diaFin): void {
+        $this->diaFin = $diaFin;
+    }
+    public function setFK_id_usuario($FK_id_usuario): void {
+        $this->FK_id_usuario = $FK_id_usuario;
     }
 
 
     public function save() {
-        $sql = "INSERT INTO agendas (fecha, disponibilidad) VALUES (
+        $sql = "INSERT INTO agenda (horaE, horaS, diaInicio, diaFin) VALUES (
             '{$this->getHoraE()}',
-            {$this->getHoraS()},
-
+            '{$this->getHoraS()}',
+            '{$this->getDiaInicio()}',
+            '{$this->getDiaFin()}',
+            '{$this->getFK_id_usuario()}'
         )";
-        
+
         $save = $this->db->query($sql);
         return $save;
     }
 
     
     public function update() {
-        $sql = "UPDATE agendas SET 
+        $sql = "UPDATE agenda SET 
                 horaS = '{$this->getHoraS()}',
                 horaE = {$this->getHoraE()},
-                semana = {$this->getSemana()}
+                diaInicio = '{$this->getDiaInicio()}',
+                diaFin = '{$this->getDiaFin()}',
+                FK_id_usuario = '{$this->getFK_id_usuario()}'
                 WHERE id = {$this->getId()}";
                 
         $update = $this->db->query($sql);
         return $update;
     }
+    public function getCitas() {
+    $sql = "SELECT * FROM cita WHERE FK_id_agenda = {$this->getId()}";
+    $result = $this->db->query($sql);
+    $citas = [];
+    while($row = $result->fetch_assoc()) {
+        $citas[] = $row;
+    }
+    return $citas;
+}
 }
 ?>;

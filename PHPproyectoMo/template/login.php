@@ -17,7 +17,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
         $login_result = $usuario->login();
         if($login_result && $login_result->num_rows > 0) {
             session_start();
-            $_SESSION['user'] = $usuario->getEmail();
+            $user_data = $login_result->fetch_assoc();
+            $_SESSION['user'] = $user_data;
             header('Location: ../index.php');
         } else {
             throw new Exception("Error al iniciar sesión.");
