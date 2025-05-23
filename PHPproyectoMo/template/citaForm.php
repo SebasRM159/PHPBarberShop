@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
 
         if($cita->save()) {
             $message = 'Cita registrada correctamente.';
-            header('Location: ../index.php');
+            header('Location: ./index.php');
         } else {
             throw new Exception("Error al registrar la cita.");
         }
@@ -98,7 +98,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
                                 <option value="largo/barba">Largo/Barba</option>
                             </select>
                             <br> -->
-                            <input id="submit-button" type="submit" value="Agendar cita" href="../index.php" name="submit-button">
+                            <input id="submit-button" type="submit" value="Agendar cita" href="./index.php" name="submit-button">
                         </form>
                     </div>
                 </section>

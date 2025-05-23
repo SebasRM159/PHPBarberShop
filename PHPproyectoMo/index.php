@@ -35,9 +35,9 @@ session_start();
             </div>
         <?php endif; ?>
         <ul class="menu__list">
-            <a href="./template/agendaForm.php" class="menu__link">
+            <button id="show-agenda-form" class="menu__link">
                 <li>Crear Agenda</li>
-            </a>
+            </button>
             <button id="show-cita-form" class="menu__link">
                 <li>Insertar Cita</li>
             </button>

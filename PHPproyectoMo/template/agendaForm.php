@@ -1,5 +1,5 @@
 <?php
-require_once '../php/db.php';
+require_once __DIR__ . '/../php/db.php';
 
 $con = Database::connect();
 
