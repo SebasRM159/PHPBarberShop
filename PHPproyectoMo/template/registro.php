@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
 
         if($usuario->save()) {
             $message = 'Usuario registrado correctamente.';
-            header('Location: ../index.php');
+            header('Location: login.php');
         } else {
             throw new Exception("Error al registrar el usuario.");
         }
