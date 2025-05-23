@@ -1,3 +1,38 @@
+<?php
+$message = '';
+
+
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
+    require_once '../php/cita.php';
+    try{
+        $fecha = $_POST['fechaC'] ?? '';
+        $cliente = $_POST['nombre'] ?? '';
+        $hora = $_POST['horaC'] ?? '';
+        $valor = $_POST['valor'] ?? '';
+
+        if (empty($fecha) || empty($cliente) || empty($hora) || empty($valor)) {
+            throw new Exception("Todos los campos son obligatorios");
+        }
+
+        $usuario = new usuario();
+        $usuario->setNombre($fecha);
+        $usuario->setApellidos($cliente);
+        $usuario->setEmail($hora);
+        $usuario->setPassword($valor);
+
+        if($cita->save()) {
+            $message = 'Cita registrada correctamente.';
+            header('Location: ../index.php');
+        } else {
+            throw new Exception("Error al registrar la cita.");
+        }
+    } catch (Exception $e) {
+        $message = 'Error al registrar la cita: ' . $e->getMessage();
+    }
+}
+?>
+
 <div class="FormularioA">
     <section>
         <h1 class="titulo">Citacion</h1>
@@ -12,7 +47,7 @@
                 <label for="time">Hora de la cita</label>
                 <input type="time" id="horaC" name="horaC" required>
                 <br>
-                <label for="text">Descripcion del corte</label>
+                <label for="text">Valor del corte</label>
                 <input type="text" id="tipoC" name="desc" required>
                 <br>
                 <input id="submit-button" type="submit" value="Agendar cita" href="index.html">
