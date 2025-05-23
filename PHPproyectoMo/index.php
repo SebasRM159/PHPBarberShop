@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +17,23 @@
     <aside class="menu__sidebar">
         <div class="menu__brownsquare"></div>
         <img id="image" src="./images/Logo.png" class="menu__image" alt="Logo">
+        <?php if(isset($_SESSION['user'])): ?>
+            <div style="
+                background: #3e2723;
+                color: #fff;
+                text-align: center;
+                margin: 15px 0 20px 0;
+                padding: 12px 8px;
+                border-radius: 10px;
+                font-weight: bold;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                letter-spacing: 1px;
+                font-size: 1.05em;
+            ">
+                <span style="display:block; font-size:0.95em; opacity:0.8;">Sesión iniciada como:</span>
+                <span style="font-size:1.1em;"><?php echo htmlspecialchars($_SESSION['user']); ?></span>
+            </div>
+        <?php endif; ?>
         <ul class="menu__list">
             <button id="show-agenda-form" class="menu__link">
                 <li>Agenda</li>
@@ -21,10 +41,16 @@
             <button id="show-cita-form" class="menu__link">
                 <li>Citar</li>
             </button>
-            <a href="./template/login.php" class="menu__link">
-                <li>Login</li>
-            </a>
-            <a aria-label="Vista" class="menu__link">
+            <?php if(isset($_SESSION['user'])): ?>
+                <a href="./template/logout.php" class="menu__link">
+                    <li>Cerrar sesión</li>
+                </a>
+            <?php else: ?>
+                <a href="./template/login.php" class="menu__link">
+                    <li>Iniciar Sesión</li>
+                </a>
+            <?php endif; ?>
+            <a href="./template/Vista.php" class="menu__link">
                 <li>Vista</li>
             </a>
         </ul>
