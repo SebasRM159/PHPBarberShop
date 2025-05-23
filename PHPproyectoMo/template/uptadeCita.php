@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($query);
     </head>
     <body>
         <div class="users-form">
-            <form action="EditCitas.php" method="POST">
+            <form action="editCitas.php" method="POST">
                 <input type="hidden" name="id" value="<?= $row['id']?>">
                 <input type="text" name="cliente" placeholder="Nombre" value="<?= $row['cliente']?>">
                 <input type="text" name="fecha" placeholder="Apellidos" value="<?= $row['fecha']?>">

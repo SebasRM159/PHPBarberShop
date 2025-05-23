@@ -36,11 +36,17 @@ session_start();
         <?php endif; ?>
         <ul class="menu__list">
             <a href="./template/agendaForm.php" class="menu__link">
-                <li>Agenda</li>
+                <li>Crear Agenda</li>
             </a>
             <button id="show-cita-form" class="menu__link">
-                <li>Citar</li>
+                <li>Insertar Cita</li>
             </button>
+            <a href="./template/vistaCita.php" class="menu__link">
+                <li>Citas</li>
+            </a>
+            <a href="./template/vistaAgenda.php" class="menu__link">
+                <li>Agendas</li>
+            </a>
             <?php if(isset($_SESSION['user'])): ?>
                 <a href="./template/logout.php" class="menu__link">
                     <li>Cerrar sesión</li>
@@ -50,14 +56,12 @@ session_start();
                     <li>Iniciar Sesión</li>
                 </a>
             <?php endif; ?>
-            <a href="./template/Vista.php" class="menu__link">
-                <li>Vista</li>
-            </a>
         </ul>
     </aside>
 
 <!-- MAIN -->
 <main id='root'>
+    
     <div id="agenda-form" style="display: none;">
         <?php include('./template/agendaForm.php'); ?>
     </div>

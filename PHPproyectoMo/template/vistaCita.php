@@ -42,14 +42,14 @@ $query = mysqli_query($con, $sql);
                         <th> <?= $row['valor'] ?> </th>
                         <th> <?= $row['FK_id_agenda'] ?> </th>
 
-                        <th><a class="btn-editar" href="uptade.php?id=<?= $row['id'] ?>" >Editar</a></th>
-                        <th><a class="btn-editar" href="delete.php?id=<?= $row['id'] ?>">Eliminar</a> </th>
+                        <th><a class="btn-editar" href="uptadeCita.php?id=<?= $row['id'] ?>" >Editar</a></th>
+                        <th><a class="btn-eliminar" href="deleteCita.php?id=<?= $row['id'] ?>">Eliminar</a> </th>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
 
-            <a class="volver"href="../index.php">Volver</a>
+            <a class="volver" href="../index.php">Volver</a>
         </div>
     </main>
 

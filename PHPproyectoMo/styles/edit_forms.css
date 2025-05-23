@@ -1,0 +1,86 @@
+body {
+    background-color: #f2dec4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.users-form {
+    background-color: #c48f61;
+    border-radius: 16px;
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 32px 28px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.users-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.users-form label {
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 6px;
+    color: #3e2723;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-align: left;
+    display: block;
+}
+
+.users-form input[type="time"],
+.users-form input[type="date"],
+.users-form input[type="number"],
+.users-form input[type="text"] {
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.10);
+    color: #000;
+    background-color: #ecdcc0;
+    font-size: 1rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.users-form input[type="time"]:focus,
+.users-form input[type="date"]:focus,
+.users-form input[type="number"]:focus,
+.users-form input[type="text"]:focus {
+    outline: 2px solid #a66b38;
+    background-color: #f7e8c7;
+    box-shadow: 0 0 0 2px #c48f61;
+}
+
+.users-form input[type="submit"] {
+    background-color: #ecdcc0;
+    color: #703a12;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 260px;
+}
+
+.users-form input[type="submit"]:hover {
+    background-color: #c48f61;
+    color: #fff;
+}
