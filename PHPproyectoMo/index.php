@@ -15,9 +15,9 @@
         <div class="menu__brownsquare"></div>
         <img id="image" src="./images/Logo.png" class="menu__image" alt="Logo">
         <ul class="menu__list">
-            <button id="show-agenda-form" class="menu__link">
+            <a href="./template/agendaForm.php" class="menu__link">
                 <li>Agenda</li>
-            </button>
+            </a>
             <button id="show-cita-form" class="menu__link">
                 <li>Citar</li>
             </button>
