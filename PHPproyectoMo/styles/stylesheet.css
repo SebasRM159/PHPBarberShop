@@ -249,6 +249,23 @@ footer{
     margin-bottom: 20px;
 }
 
+button.menu__link{
+  font-size: large;
+  font-weight: 100;
+  text-decoration: none;
+  color:white;
+  background-color: #a66b38;
+  display: block;
+  height: auto;
+  width: 80%;
+  border: none;
+  text-align: left;
+  padding: 15px 60px;
+  margin: 10px 0;
+  margin-left: 5%;
+  margin-bottom: 20px;
+}
+
 .menu__link:hover {
     border-radius: 7px;
     font-weight: bolder;
