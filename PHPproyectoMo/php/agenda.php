@@ -3,8 +3,9 @@ require_once 'db.php';
 
 class Agenda {
     private $id;
-    private $fecha;
-    private $disponibilidad;
+    private $horaE;
+    private $horaS;
+    private $semana;
     private $db;
 
     public function __construct() {
@@ -16,33 +17,41 @@ class Agenda {
         return $this->id;
     }
 
-    public function getFecha() {
-        return $this->fecha;
+    public function getHoraE() {
+        return $this->horaE;
     }
 
-    public function getDisponibilidad() {
-        return $this->disponibilidad;
+    public function getHoraS() {
+        return $this->horaS;
     }
+        public function getSemana() {
+        return $this->semana;
+    }
+
 
     //------------------ SETTERS ------------------//
     public function setId($id) {
         $this->id = $this->db->$id;
     }
     
-    public function setFecha($fecha) {
-        $this->fecha = $this->db->$fecha;
+    public function setHoraE($horaE) {
+        $this->horaE = $this->db->$horaE;
     }
 
-    public function setDisponibilidad($disponibilidad) {
-        $this->disponibilidad = $disponibilidad ? 1 : 0; // Convertir a 1 o 0 para la BD
-        return $this;
+    public function setHoraS($horaS): void {
+        $this->horaS = $this->db->$horaS;
+    }
+
+    public function setSemana($semana): void {
+        $this->semana = $this->db->$semana;
     }
 
 
     public function save() {
         $sql = "INSERT INTO agendas (fecha, disponibilidad) VALUES (
-            '{$this->getFecha()}',
-            {$this->getDisponibilidad()}
+            '{$this->getHoraE()}',
+            {$this->getHoraS()},
+
         )";
         
         $save = $this->db->query($sql);
@@ -52,8 +61,9 @@ class Agenda {
     
     public function update() {
         $sql = "UPDATE agendas SET 
-                fecha = '{$this->getFecha()}',
-                disponibilidad = {$this->getDisponibilidad()}
+                horaS = '{$this->getHoraS()}',
+                horaE = {$this->getHoraE()},
+                semana = {$this->getSemana()}
                 WHERE id = {$this->getId()}";
                 
         $update = $this->db->query($sql);

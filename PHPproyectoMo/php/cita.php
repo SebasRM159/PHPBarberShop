@@ -1,10 +1,12 @@
 <?php
 require_once 'db.php';
 
+
+
 class Cita {
     private $id;
+    private $fecha;
     private $cliente;
-    private $estado;
     private $hora;
     private $valor;
     private $db;
@@ -18,12 +20,12 @@ class Cita {
         return $this->id;
     }
 
-    public function getCliente() {
-        return $this->cliente;
+    public function getFecha() {
+        return $this->fecha;
     }
 
-    public function getEstado() {
-        return $this->estado;
+    public function getCliente() {
+        return $this->cliente;
     }
 
     public function getHora() {
@@ -39,12 +41,12 @@ class Cita {
         $this->id = $this->db->$id;
     }
 
-    public function setCliente($cliente) {
-        $this->cliente = $this->db->$cliente;
+    public function setFecha($fecha) {
+        $this->fecha = $this->db->$fecha;
     }
 
-    public function setEstado($estado) {
-        $this->estado = $estado ? 1 : 0; // Convertir a 1 o 0 para la BD
+    public function setCliente($cliente) {
+        $this->cliente = $this->db->$cliente;
     }
 
     public function setHora($hora) {
@@ -57,11 +59,11 @@ class Cita {
 
 
     public function save() {
-        $sql = "INSERT INTO citas (cliente, estado, hora, valor) VALUES (
+        $sql = "INSERT INTO citas (cliente, hora, valor, fecha) VALUES (
             '{$this->getCliente()}',
-            {$this->getEstado()},
             '{$this->getHora()}',
-            {$this->getValor()}
+            '{$this->getValor()}',
+            '{$this->getFecha()}'
         )";
         
         $save = $this->db->query($sql);
@@ -76,9 +78,9 @@ class Cita {
     public function update() {
         $sql = "UPDATE citas SET 
                 cliente = '{$this->getCliente()}',
-                estado = {$this->getEstado()},
                 hora = '{$this->getHora()}',
-                valor = {$this->getValor()}
+                valor = {$this->getValor()},
+                fecha = '{$this->getFecha()}'
                 WHERE id = {$this->getId()}";
                 
         $update = $this->db->query($sql);
@@ -86,7 +88,7 @@ class Cita {
     }
 
     public function cancel() {
-        $sql = "UPDATE citas SET estado = 0 WHERE id = {$this->getId()}";
+        $sql = "DELETE FROM cita WHERE id = {$this->getId()}";
         return $this->db->query($sql);
     }
 }

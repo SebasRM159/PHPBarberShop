@@ -24,7 +24,7 @@
             <a href="./template/login.php" class="menu__link">
                 <li>Login</li>
             </a>
-            <a aria-label="Vista" class="menu__link">
+            <a href="./template/Vista.php" class="menu__link">
                 <li>Vista</li>
             </a>
         </ul>
