@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
 
         if($cita->save()) {
             $message = 'Cita registrada correctamente.';
-            header('Location: ./index.php');
+            header('Location: ./template/vistaCitas.php');
         } else {
             throw new Exception("Error al registrar la cita.");
         }

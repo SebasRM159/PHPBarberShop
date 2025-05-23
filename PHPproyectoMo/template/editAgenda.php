@@ -15,7 +15,7 @@ $sql = "UPDATE agenda SET horaentrada='$horaENtrada', horasalida='$horaSalida', 
 $query = mysqli_query($con, $sql);
 
 if($query){
-    Header("Location: agendaForm.php");
+    Header("Location: vistaAgenda.php");
 }else{
 
 }

@@ -61,7 +61,27 @@ session_start();
 
 <!-- MAIN -->
 <main id='root'>
-    
+    <div id="main" style="display: block;">
+        <div class="container-form">
+            <?php
+            if (!empty($message)): ?>
+                <div class="message <?php echo strpos($message, 'Error') === false ? 'success' : 'error'; ?>">
+                    <?php echo htmlspecialchars($message); ?>
+                </div>
+            <?php endif; ?>
+            <div class="FormularioA">
+                <section>
+                    <h1 class="titulo" style="margin-top: 20px;">Nosotros</h1>
+                    <div class="container-form" style="text-align: center; margin-left: 24px">
+                        <p style="text-align: justify; font-weight: bold; color: #fff; text-shadow: 1px 1px 2px #000; line-height: 1.5; margin: 0 20px; padding: 10px;">
+                            Asi es la nueva pagina de la Barberia de bello mas popular y mejor puntuada, con casi 10 años de servicio, busca nuevos caminos por los cuales aventarse, hay que saber muy bien que no es que estes feo, sino que no tienes un buen barbero...
+                        </p>
+                    </div>
+                    <img src="./images/barberia3.png" alt="Banner" class="banner"/>
+                </section>
+            </div>
+        </div>
+    </div>
     <div id="agenda-form" style="display: none;">
         <?php include('./template/agendaForm.php'); ?>
     </div>

@@ -301,6 +301,7 @@ button.menu__link{
 .FormularioA input[type="text"],
 .FormularioA input[type="date"],
 .FormularioA input[type="time"],
+.FormularioA input[type="number"],
 .FormularioA select {
     width: 100%;
     max-width: 260px;
@@ -333,6 +334,7 @@ button.menu__link{
 .FormularioA input[type="text"]:focus,
 .FormularioA input[type="date"]:focus,
 .FormularioA input[type="time"]:focus,
+.FormularioA input[type="number"]:focus,
 .FormularioA select:focus {
     outline: 2px solid #a66b38;
     background-color: #f7e8c7;

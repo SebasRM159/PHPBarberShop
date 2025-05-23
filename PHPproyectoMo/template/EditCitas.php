@@ -15,7 +15,7 @@ $sql = "UPDATE cita SET cliente='$cliente', fecha='$fecha', valor='$valor', FK_i
 $query = mysqli_query($con, $sql);
 
 if($query){
-    Header("Location: Vista.php");
+    Header("Location: vistaCita.php");
 }else{
 
 }

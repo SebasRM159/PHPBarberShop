@@ -62,14 +62,14 @@ class Agenda {
 
 
     public function save() {
-        $sql = "INSERT INTO agenda (horaE, horaS, diaInicio, diaFin) VALUES (
+        $sql = "INSERT INTO agenda (horaentrada, horasalida, diainicio, diafinal, FK_id_usuario) VALUES (
             '{$this->getHoraE()}',
             '{$this->getHoraS()}',
             '{$this->getDiaInicio()}',
             '{$this->getDiaFin()}',
             '{$this->getFK_id_usuario()}'
         )";
-
+        
         $save = $this->db->query($sql);
         return $save;
     }
