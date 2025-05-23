@@ -15,11 +15,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
             throw new Exception("Todos los campos son obligatorios");
         }
 
-        $usuario = new usuario();
-        $usuario->setNombre($fecha);
-        $usuario->setApellidos($cliente);
-        $usuario->setEmail($hora);
-        $usuario->setPassword($valor);
+        $cita = new cita();
+        $cita->setFecha($fecha);
+        $cita->setCliente($cliente);
+        $cita->setHora($hora);
+        $cita->setValor($valor);
 
         if($cita->save()) {
             $message = 'Cita registrada correctamente.';
@@ -32,27 +32,58 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-button'])) {
     }
 }
 ?>
-
-<div class="FormularioA">
-    <section>
-        <h1 class="titulo">Citacion</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/login_style.css">
+    <title>David Rodríguez: Barbería - Citar</title>
+</head>
+<body background="../images/backgroundBarberia.png">
+    <div id="register-form"class="container" style="display: block;">
         <div class="container-form">
-            <form id="citas" method="post">
-                <label for="text">Nombre Completo del Cliente</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <br>
-                <label for="date">Fecha de la cita</label>
-                <input type="date" id="fechaC" name="fechaC" required>
-                <br>
-                <label for="time">Hora de la cita</label>
-                <input type="time" id="horaC" name="horaC" required>
-                <br>
-                <label for="text">Valor del corte</label>
-                <input type="text" id="tipoC" name="desc" required>
-                <br>
-                <input id="submit-button" type="submit" value="Agendar cita" href="index.html">
-            </form>
+            <?php
+            if (!empty($message)): ?>
+                <div class="message <?php echo strpos($message, 'Error') === false ? 'success' : 'error'; ?>">
+                    <?php echo htmlspecialchars($message); ?>
+                </div>
+            <?php endif; ?>
+            <div class="FormularioA">
+                <section>
+                    <h1 class="titulo">Citacion</h1>
+                    <div class="container-form">
+                        <form id="citas" method="post">
+                            <label for="text">Nombre Completo del Cliente</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                            <br>
+                            <label for="date">Fecha de la cita</label>
+                            <input type="date" id="fechaC" name="fechaC" required>
+                            <br>
+                            <label for="time">Hora de la cita</label>
+                            <input type="time" id="horaC" name="horaC" required>
+                            <br>
+                            <label for="text">Valor del corte</label>
+                            <input type="text" id="tipoC" name="desc" required>
+                            <br>
+                            <label for="valor">Valor del corte</label>
+                            <select id="valor" name="valor" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="corto">Corto</option>
+                                <option value="medio">Medio</option>
+                                <option value="largo">Largo</option>
+                                <option value="corto/barba">Corto/Barba</option>
+                                <option value="medio/barba">Medio/Barba</option>
+                                <option value="largo/barba">Largo/Barba</option>
+                            </select>
+                            <br>
+                            <input id="submit-button" type="submit" value="Agendar cita" href="index.php">
+                        </form>
+                    </div>
+                </section>
+                <img src="https://i.pinimg.com/736x/30/e2/18/30e218881e252ec96c2d85190529bca0.jpg" alt="Banner" class="banner"/>
+            </div>
         </div>
-    </section>
-    <img src="https://i.pinimg.com/736x/30/e2/18/30e218881e252ec96c2d85190529bca0.jpg" alt="Banner" class="banner"/>
-</div>
+    </div>
+</body>
+</html>

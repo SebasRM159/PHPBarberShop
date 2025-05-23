@@ -2,265 +2,322 @@
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
     background-color: #f2dec4;
     font-family: Arial, sans-serif;
-  }
+}
 
-  header{
+header{
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
     height: auto;
-  }
+}
 
-  /* -- ------------------------------------------------------------------------------------------------------------------  */
+/* -- ------------------------------------------------------------------------------------------------------------------  */
 main{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-
-.FormularioA{
-  background-color: #c48f61 ;
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-    
+.FormularioA {
+    background-color: #c48f61;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 950px; /* Aumenta el ancho máximo */
+    margin: 40px auto;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+    overflow: hidden;
 }
-.FormularioA img{
-  height: 100%;
-  object-fit: cover;
+
+.FormularioA img {
+    height: 100%;
+    width: 380px; /* Ajusta el ancho de la imagen */
+    object-fit: cover;
+    display: block;
 }
 
 label{
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-input{
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: none;    
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  box-sizing: border-box;
-  color: #000000;
-  background-color: #ecdcc0;
-}
-
-.container-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;    
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .titulo{
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #submit-button{
-  background-color: #ecdcc0;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px;
+    background-color: #ecdcc0;
+    color: #703a12;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 260px;
 }
 
+#submit-button:hover {
+    background-color: #c48f61;
+    color: #fff;
+}
 
-  /* -- ------------------------------------------------------------------------------------------------------------------  */
+/* -- ------------------------------------------------------------------------------------------------------------------  */
 
 footer{
-  position: relative;
-  bottom: 0;
-  display: flex;
-  text-align: justify;
-  background-color: #703a12;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  border-top-width: 3px;
-  border-color: #000000;
-  border-top-style: solid;
-  list-style: none;
-  
+    position: relative;
+    bottom: 0;
+    display: flex;
+    text-align: justify;
+    background-color: #703a12;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-top-width: 3px;
+    border-color: #000000;
+    border-top-style: solid;
+    list-style: none;
 }
 
 .footer{
-  display: flex;
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  justify-content: center;
-  flex-direction: row;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .footer-Contacto{
-  display: flex;
-  justify-content: left;
-  list-style: none;
-  width: 50%;
-  margin-left: 250px;
-  margin-right: 50px;
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    width: 50%;
+    margin-left: 250px;
+    margin-right: 50px;
 }
 
 .footer-Ubicacion{
-  display: flex;
-  justify-content: right;
-  list-style: none;
-  margin-left: 10px;
-  width: 50%;
-  margin-right: 250px;
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    margin-left: 10px;
+    width: 50%;
+    margin-right: 250px;
 }
 
 .footer-Contacto ul{
-  list-style: none;
+    list-style: none;
 }
 .footer-Ubicacion ul{
-  list-style: none;
+    list-style: none;
 }
 
 .footer-text{
-  font-weight: bold;
-  margin: auto;
-  justify-content: center;
-  line-height: 1.5;
+    font-weight: bold;
+    margin: auto;
+    justify-content: center;
+    line-height: 1.5;
 }
 
 .footer-Ubicacion img{
-  width: 300px;
-  height: auto;
-  margin-left: 10px;
+    width: 300px;
+    height: auto;
+    margin-left: 10px;
 }
 
 .footer-redes{
-  display: flex;
-  list-style: none;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 10px;
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
 }
 
 .ig img{
-  list-style: none;
-  height: auto; 
-  width: 100%; 
-  max-width: 200px; 
-  max-height: 200px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 10px;
+    list-style: none;
+    height: auto; 
+    width: 100%; 
+    max-width: 200px; 
+    max-height: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
 }
 
 .face img{
-  list-style: none;
-  height: auto; 
-  width: 100%; 
-  max-width: 200px; 
-  max-height: 200px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 10px;
+    list-style: none;
+    height: auto; 
+    width: 100%; 
+    max-width: 200px; 
+    max-height: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
 }
 
 .tito img{
-  list-style: none;
-  height: auto; 
-  width: 100%; 
-  max-width: 200px; 
-  max-height: 200px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 10px;
+    list-style: none;
+    height: auto; 
+    width: 100%; 
+    max-width: 200px; 
+    max-height: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
 }
-
 
 .menu__sidebar{
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 0;
-  left: -250px;
-  width: 350px;
-  height: 100vh;
-  transition: all 0.5s ease-in-out;
-  background: #a66b38;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: -250px;
+    width: 350px;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
+    background: #a66b38;
 }
 .menu__sidebar:hover{
-  left: 0;
-  transition: all 0.5s ease-in-out;
+    left: 0;
+    transition: all 0.5s ease-in-out;
 }
 
-
 .menu__sidebar:hover > .menu__image{
-  align-self: center;
-  transition: all 0.5s ease-in-out;
+    align-self: center;
+    transition: all 0.5s ease-in-out;
 }
 
 .menu__main{
-  background-color: #703a12;
+    background-color: #703a12;
 }
 .menu__image{
-  align-self: flex-end;
-  width: 100px;
-  transition: all 0.5s ease-in-out;
-  background-color: #703a12;
-  margin-bottom: 20px;
+    align-self: flex-end;
+    width: 100px;
+    transition: all 0.5s ease-in-out;
+    background-color: #703a12;
+    margin-bottom: 20px;
 }
 
 .menu__brownsquare{
-  background-color: #703a12;
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+    background-color: #703a12;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .menu__sidebar > ul {
-  list-style: none;
+    list-style: none;
 }
 .menu__link {
-  font-size: large;
-  font-weight: 100;
-  text-decoration: none;
-  color:white;
-  background-color: #a66b38;
-  display: block;
-  height: auto;
-  width: 80%;
-  text-align: left;
-  padding: 15px 60px;
-  margin: 10px 0;
-  margin-left: 5%;
-  margin-bottom: 20px;
+    font-size: large;
+    font-weight: 100;
+    text-decoration: none;
+    color:white;
+    background-color: #a66b38;
+    display: block;
+    height: auto;
+    width: 80%;
+    text-align: left;
+    padding: 15px 60px;
+    margin: 10px 0;
+    margin-left: 5%;
+    margin-bottom: 20px;
 }
 
 .menu__link:hover {
-  border-radius: 7px;
-  font-weight: bolder;
-  cursor: pointer;
-  font-style: oblique;
-  background-color: #703a12;
+    border-radius: 7px;
+    font-weight: bolder;
+    cursor: pointer;
+    font-style: oblique;
+    background-color: #703a12;
+}
+
+/* --- Estilos personalizados para el formulario de citas --- */
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 32px 24px;
+    background: transparent;
+}
+
+.FormularioA form {
+    width: 100%;
+}
+
+.FormularioA label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.FormularioA input[type="text"],
+.FormularioA input[type="date"],
+.FormularioA input[type="time"],
+.FormularioA select {
+    width: 100%;
+    max-width: 260px;
+    min-width: 120px;
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.10);
+    color: #000;
+    background-color: #ecdcc0;
+    font-size: 1rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    outline: none;
+    display: block;
+}
+
+.FormularioA select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'><path d='M4 6l4 4 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px 18px;
+    cursor: pointer;
+}
+
+.FormularioA input[type="text"]:focus,
+.FormularioA input[type="date"]:focus,
+.FormularioA input[type="time"]:focus,
+.FormularioA select:focus {
+    outline: 2px solid #a66b38;
+    background-color: #f7e8c7;
+    box-shadow: 0 0 0 2px #c48f61;
 }
