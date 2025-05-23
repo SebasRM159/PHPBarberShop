@@ -45,9 +45,6 @@
   border-bottom: 1px solid #ccc;
 }
 
-.tabla-citas tr:hover {
-  background-color: #f3e2c7;
-}
 
 .btn-editar,
 .btn-eliminar {
